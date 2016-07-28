@@ -20,6 +20,7 @@
     </message>
     <message>
         <source>Item</source>
+        <source>My Cover</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
