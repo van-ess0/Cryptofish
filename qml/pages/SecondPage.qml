@@ -30,27 +30,11 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtQuick.Dialogs 1.0
 
 
 Page {
     id: page
     anchors.fill: parent
-
-    FileDialog {
-        id: fileDialog
-        title: "Please choose a file"
-        folder: shortcuts.home
-        onAccepted: {
-            console.log("You chose: " + fileDialog.fileUrls)
-//            Qt.quit()
-        }
-        onRejected: {
-            console.log("Canceled")
-//            Qt.quit()
-        }
-        Component.onCompleted: visible = true
-    }
 
     SilicaFlickable {
         anchors.fill: parent

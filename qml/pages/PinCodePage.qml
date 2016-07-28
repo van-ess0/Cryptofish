@@ -38,10 +38,9 @@ Dialog {
         //TODO: Validate(passwdField.text)
         //TODO: Decrypt()
         console.log('Validated/Decrypted')
+        passwdField.text = ''
         pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
     }
-
-    // To enable PullDownMenu, place our content in a SilicaFlickable
 
     Column {
 
