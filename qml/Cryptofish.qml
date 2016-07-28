@@ -34,9 +34,9 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: Component { FirstPage { } }
+    initialPage: Component { PinCodePage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
-    allowedOrientations: Orientation.All
+    allowedOrientations: Orientation.Portrait
     _defaultPageOrientations: Orientation.All
 }
 
