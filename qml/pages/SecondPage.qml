@@ -64,7 +64,7 @@ Page {
             MenuItem {
                 text: "New Note"
                 onClicked: {
-                    console.log('Wanna new Note')
+                    pageStack.push(Qt.resolvedUrl("NewNotePage.qml"))
                 }
             }
 
