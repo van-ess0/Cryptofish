@@ -4,6 +4,7 @@
 <context>
     <name>PinCodePage</name>
     <message>
+<<<<<<< HEAD
         <source>cryptofish</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20,6 +21,9 @@
     </message>
     <message>
         <source>Item</source>
+=======
+        <source>My Cover</source>
+>>>>>>> Presentation
         <translation type="unfinished"></translation>
     </message>
 </context>

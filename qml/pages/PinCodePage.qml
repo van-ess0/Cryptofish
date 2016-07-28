@@ -31,6 +31,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+<<<<<<< HEAD
 Page {
     Column {
         anchors.fill: parent
@@ -60,6 +61,36 @@ Page {
 //            }
             //passwordCharacter: Qt.darkGray
             inputMethodHints: Qt.ImhFormattedNumbersOnly
+=======
+
+Dialog {
+    id: dialog
+
+    onAccepted: {
+        //TODO: Validate()
+        //TODO: Decrypt()
+        console.log('Validated/Decrypted')
+        pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+    }
+
+    // To enable PullDownMenu, place our content in a SilicaFlickable
+
+    Column {
+
+        anchors.fill: parent
+        DialogHeader { }
+
+        PasswordField {
+            placeholderText: 'Enter your PIN'
+            text: ''
+            horizontalAlignment: TextInput.AlignHCenter
+            inputMethodHints: Qt.ImhDigitsOnly
+            EnterKey.iconSource: "image://theme/icon-m-enter-accept"
+            EnterKey.onClicked: {
+                console.log('Enter pressed')
+                dialog.accept()
+            }
+>>>>>>> Presentation
         }
 //        TextArea {
 //            id: textArea

@@ -37,7 +37,11 @@ ApplicationWindow
     initialPage: Component { PinCodePage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: Orientation.Portrait
+<<<<<<< HEAD
     _defaultPageOrientations: Orientation.Portrait
+=======
+    _defaultPageOrientations: Orientation.All
+>>>>>>> Presentation
 }
 
 
