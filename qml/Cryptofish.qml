@@ -31,13 +31,20 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "pages"
+import com.filemanager 1.0
 
 ApplicationWindow
 {
+    Component.onDestruction: {
+            console.log("BYE")
+            fileManager.closing()
+        }
+
     initialPage: Component { PinCodePage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: Orientation.Portrait
     _defaultPageOrientations: Orientation.Portrait
+
 }
 
 

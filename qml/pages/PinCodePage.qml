@@ -30,6 +30,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import com.filemanager 1.0
 
 Dialog {
     id: dialog
@@ -38,8 +39,16 @@ Dialog {
         //TODO: Validate(passwdField.text)
         //TODO: Decrypt()
         console.log('Validated/Decrypted')
-        passwdField.text = ''
-        pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+
+            pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+
+    }
+
+    FileManager {
+        id: fileManager
+//        onResponseKey: {
+//            dialog.accept()
+//        }
     }
 
     Column {
@@ -57,7 +66,7 @@ Dialog {
             EnterKey.iconSource: "image://theme/icon-m-enter-accept"
             EnterKey.onClicked: {
                 console.log('Enter pressed')
-                dialog.accept()
+                fileManager.verification(passwdField.text)
             }
         }
     }
