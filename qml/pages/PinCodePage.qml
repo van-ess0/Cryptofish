@@ -39,7 +39,7 @@ Dialog {
         //TODO: Decrypt()
         console.log('Validated/Decrypted')
         passwdField.text = ''
-        pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+        pageStack.pushAttached(Qt.resolvedUrl("SecondPage.qml"))
     }
 
     Column {

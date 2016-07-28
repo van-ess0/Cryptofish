@@ -50,6 +50,7 @@ Page {
                 onClicked: {
                     //Lock()
                     console.log('Wanna Exit')
+                    PageStack.pop()
                 }
             }
 
@@ -65,14 +66,27 @@ Page {
                 text: "New Note"
                 onClicked: {
                     console.log('Wanna new Note')
+                    pageStack.push(Qt.resolvedUrl("NewNotePage.qml"))
                 }
             }
-
         }
-        ListView {
+//        ListView {
 
+//        }
+        SilicaListView {
+            anchors.fill: parent
+            delegate: ListItem {
+                Label {
+                    text: qsTr("Item %1").arg(model.index + 1)
+                    anchors.verticalCenter: parent.verticalCenter
+                    x: Theme.horizontalPageMargin
+                    color: highlighted ? Theme.highlightColor : Theme.primaryColor
+                }
+            }
+            model: 15
+
+            VerticalScrollDecorator { }
         }
-
     }
 }
 
