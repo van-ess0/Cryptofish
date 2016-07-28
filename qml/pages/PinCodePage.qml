@@ -31,43 +31,83 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-
 Page {
-    id: page
-
-    // To enable PullDownMenu, place our content in a SilicaFlickable
-    SilicaFlickable {
+    Column {
         anchors.fill: parent
 
-        // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
-        PullDownMenu {
-            MenuItem {
-                text: qsTr("Show Page 2")
-                onClicked: pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
-            }
+        PageHeader { title: qsTr("cryptofish")}
+        TextField {
+            id: pin
+            placeholderText: qsTr("Pin Code")
+            horizontalAlignment: Text.horizontalCenter
+            //validator
+
+            //label: qsTr("Text Field")
+            width: parent.width
+            EnterKey.enabled: text.length > 4 //
+            //EnterKey.iconSource: "image://theme/icon-m-enter-next"
+            //EnterKey.onClicked: textArea.focus = true
+            //echoMode: textInput.Password
+
+//            validator: TextWidthValidator {
+//                textWidth: 4
+//            }
+
+//            validator: DoubleValidator {
+//                bottom: -1
+//                top: 10
+//                decimals: 2
+//            }
+            //passwordCharacter: Qt.darkGray
+            inputMethodHints: Qt.ImhFormattedNumbersOnly
         }
+//        TextArea {
+//            id: textArea
 
-        // Tell SilicaFlickable the height of its content.
-        contentHeight: column.height
-
-        // Place our content in a Column.  The PageHeader is always placed at the top
-        // of the page, followed by our content.
-        Column {
-            id: column
-
-            width: page.width
-            spacing: Theme.paddingLarge
-            PageHeader {
-                title: qsTr("UI Template")
-            }
-            Label {
-                x: Theme.paddingLarge
-                text: qsTr("Hello Sailors")
-                color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeExtraLarge
-            }
-        }
+//            placeholderText: qsTr("Fill the area")
+//            label: qsTr("Text area")
+//            width: parent.width
+//        }
     }
 }
+
+
+//Page {
+//    id: page
+
+//    // To enable PullDownMenu, place our content in a SilicaFlickable
+//    SilicaFlickable {
+//        anchors.fill: parent
+
+//        // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
+//        PullDownMenu {
+//            MenuItem {
+//                text: qsTr("Show Page 2")
+//                onClicked: pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+//            }
+//        }
+
+//        // Tell SilicaFlickable the height of its content.
+//        contentHeight: column.height
+
+//        // Place our content in a Column.  The PageHeader is always placed at the top
+//        // of the page, followed by our content.
+//        Column {
+//            id: column
+
+//            width: page.width
+//            spacing: Theme.paddingLarge
+//            PageHeader {
+//                title: qsTr("UI Template")
+//            }
+//            Label {
+//                x: Theme.paddingLarge
+//                text: qsTr("Hello Sailors")
+//                color: Theme.secondaryHighlightColor
+//                font.pixelSize: Theme.fontSizeExtraLarge
+//            }
+//        }
+//    }
+//}
 
 
