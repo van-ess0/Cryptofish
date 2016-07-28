@@ -35,7 +35,8 @@ CoverBackground {
     Label {
         id: label
         anchors.centerIn: parent
-        text: applicationWindow.currentPageName
+        text: "Cryptofish"
+        Text.color: Theme.highlightText()
     }
 }
 
