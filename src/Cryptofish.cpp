@@ -33,7 +33,16 @@
 #endif
 
 #include <sailfishapp.h>
+#include "filemanager.h"
+#include <QQmlApplicationEngine>
+#include <QQuickView>
+#include <QQuickItem>
+#include <QQmlEngine>
+#include <QQmlComponent>
+#include <QQmlContext>
+#include <QQuickWindow>
 
+#include <QStringList>
 
 int main(int argc, char *argv[])
 {
@@ -45,6 +54,14 @@ int main(int argc, char *argv[])
     //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
     //
     // To display the view, call "show()" (will show fullscreen on device).
+
+    //FileManager* filemanager = new FileManager();
+
+    qmlRegisterType<FileManager>("com.filemanager", 1, 0, "FileManager");
+
+    qSetMessagePattern("[%{time yyyyMMdd h:mm:ss.zzz}]\
+        [%{if-debug}DEBUG%{endif}\%{if-info}INFO%{endif}%{if-warning}WARNING%{endif}\%{if-critical}CRITICAL%{endif}%{if-fatal}FATAL%{endif}]\
+        [%{file}:%{line} %{function}] - %{message}");
 
     return SailfishApp::main(argc, argv);
 }

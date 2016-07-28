@@ -34,25 +34,45 @@ import Sailfish.Silica 1.0
 
 Page {
     id: page
-    SilicaListView {
-        id: listView
-        model: 20
-        anchors.fill: parent
-        header: PageHeader {
-            title: qsTr("Nested Page")
-        }
-        delegate: BackgroundItem {
-            id: delegate
+    anchors.fill: parent
 
-            Label {
-                x: Theme.paddingLarge
-                text: qsTr("Item") + " " + index
-                anchors.verticalCenter: parent.verticalCenter
-                color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
-            }
-            onClicked: console.log("Clicked " + index)
+    SilicaFlickable {
+        anchors.fill: parent
+
+        PageHeader {
+            title: "Your Notes"
         }
-        VerticalScrollDecorator {}
+
+        PullDownMenu {
+
+            MenuItem {
+                text: "Exit"
+                onClicked: {
+                    //Lock()
+                    console.log('Wanna Exit')
+                }
+            }
+
+            MenuItem {
+                text: "Settings"
+                onClicked: {
+                    console.log('Go to Settings')
+                    pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
+                }
+            }
+
+            MenuItem {
+                text: "New Note"
+                onClicked: {
+                    console.log('Wanna new Note')
+                }
+            }
+
+        }
+        ListView {
+
+        }
+
     }
 }
 

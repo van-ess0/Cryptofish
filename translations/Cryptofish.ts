@@ -2,8 +2,16 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>PinCodePage</name>
+    <name>SettingsPage</name>
     <message>
+<<<<<<< HEAD
+        <source>Password was changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cryptofish</source>
+=======
+<<<<<<< HEAD
         <source>cryptofish</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20,6 +28,10 @@
     </message>
     <message>
         <source>Item</source>
+=======
+        <source>My Cover</source>
+>>>>>>> Presentation
+>>>>>>> origin/master
         <translation type="unfinished"></translation>
     </message>
 </context>

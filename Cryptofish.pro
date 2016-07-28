@@ -14,7 +14,8 @@ TARGET = Cryptofish
 
 CONFIG += sailfishapp
 
-SOURCES += src/Cryptofish.cpp
+SOURCES += src/Cryptofish.cpp \
+    src/filemanager.cpp
 
 OTHER_FILES += qml/Cryptofish.qml \
     qml/cover/CoverPage.qml \
@@ -35,8 +36,12 @@ CONFIG += sailfishapp_i18n
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/Cryptofish-de.ts
+TRANSLATIONS +=
 
 DISTFILES += \
-    qml/pages/PinCodePage.qml
+    qml/pages/PinCodePage.qml \
+    qml/pages/SettingsPage.qml
+
+HEADERS += \
+    src/filemanager.h
 
