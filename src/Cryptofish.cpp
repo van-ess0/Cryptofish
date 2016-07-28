@@ -45,9 +45,6 @@ int main(int argc, char *argv[])
     //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
     //
     // To display the view, call "show()" (will show fullscreen on device).
-    qSetMessagePattern("[%{time yyyyMMdd h:mm:ss.zzz}]\
-        [%{if-debug}DEBUG%{endif}\%{if-info}INFO%{endif}%{if-warning}WARNING%{endif}\%{if-critical}CRITICAL%{endif}%{if-fatal}FATAL%{endif}]\
-        [%{file}:%{line} %{function}] - %{message}");
 
     return SailfishApp::main(argc, argv);
 }
