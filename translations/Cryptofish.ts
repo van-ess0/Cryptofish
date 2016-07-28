@@ -2,25 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>PinCodePage</name>
+    <name>SettingsPage</name>
     <message>
-        <source>cryptofish</source>
+        <source>Password was changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pin Code</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SecondPage</name>
-    <message>
-        <source>Nested Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item</source>
-        <source>My Cover</source>
+        <source>Cryptofish</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -30,22 +30,65 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import QtQuick.Dialogs 1.0
 
 
 Page {
     id: page
+    anchors.fill: parent
+
+    FileDialog {
+        id: fileDialog
+        title: "Please choose a file"
+        folder: shortcuts.home
+        onAccepted: {
+            console.log("You chose: " + fileDialog.fileUrls)
+//            Qt.quit()
+        }
+        onRejected: {
+            console.log("Canceled")
+//            Qt.quit()
+        }
+        Component.onCompleted: visible = true
+    }
 
     SilicaFlickable {
         anchors.fill: parent
+
+        PageHeader {
+            title: "Your Notes"
+        }
+
         PullDownMenu {
+
             MenuItem {
-                text: "Encrypt"
+                text: "Exit"
                 onClicked: {
                     //Lock()
-                    console.log('Crypted')
+                    console.log('Wanna Exit')
                 }
             }
+
+            MenuItem {
+                text: "Settings"
+                onClicked: {
+                    console.log('Go to Settings')
+                    pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
+                }
+            }
+
+            MenuItem {
+                text: "New Note"
+                onClicked: {
+                    console.log('Wanna new Note')
+                }
+            }
+
         }
+        ListView {
+
+        }
+
     }
 }
 

@@ -38,5 +38,6 @@ CONFIG += sailfishapp_i18n
 TRANSLATIONS +=
 
 DISTFILES += \
-    qml/pages/PinCodePage.qml
+    qml/pages/PinCodePage.qml \
+    qml/pages/SettingsPage.qml
 

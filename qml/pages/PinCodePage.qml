@@ -35,7 +35,7 @@ Dialog {
     id: dialog
 
     onAccepted: {
-        //TODO: Validate()
+        //TODO: Validate(passwdField.text)
         //TODO: Decrypt()
         console.log('Validated/Decrypted')
         pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
@@ -49,10 +49,12 @@ Dialog {
         DialogHeader { }
 
         PasswordField {
+            id: passwdField
             placeholderText: 'Enter your PIN'
             text: ''
             horizontalAlignment: TextInput.AlignHCenter
             inputMethodHints: Qt.ImhDigitsOnly
+            EnterKey.enabled: text.length >= 6
             EnterKey.iconSource: "image://theme/icon-m-enter-accept"
             EnterKey.onClicked: {
                 console.log('Enter pressed')
