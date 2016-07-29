@@ -40,7 +40,7 @@ Dialog {
         //TODO: Decrypt()
         console.log('Validated/Decrypted')
 
-            pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+        pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
 
     }
 
@@ -66,7 +66,9 @@ Dialog {
             EnterKey.iconSource: "image://theme/icon-m-enter-accept"
             EnterKey.onClicked: {
                 console.log('Enter pressed')
-                fileManager.verification(passwdField.text)
+                dialog.accept()
+                pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+                //fileManager.verification(passwdField.text)
             }
         }
     }

@@ -1,10 +1,14 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-
 Dialog {
+    DBManager {
+       id: dbmanager
+    }
+
     onAccepted: {
         console.log('Save text')
+        dbmanager.addFile(noteTextField.text)
         noteTextField.text = ""
     }
 

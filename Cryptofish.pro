@@ -41,7 +41,9 @@ TRANSLATIONS +=
 DISTFILES += \
     qml/pages/PinCodePage.qml \
     qml/pages/SettingsPage.qml \
-    qml/pages/NewNotePage.qml
+    qml/pages/NewNotePage.qml \
+    qml/pages/GridNotePage.qml \
+    qml/pages/DBManager.qml
 
 HEADERS += \
     src/filemanager.h

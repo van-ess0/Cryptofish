@@ -31,8 +31,11 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-
 Page {
+    DBManager {
+       id: dbmanager
+    }
+
     id: page
     anchors.fill: parent
 
@@ -48,8 +51,11 @@ Page {
             MenuItem {
                 text: "Exit"
                 onClicked: {
-                    //Lock()
                     console.log('Wanna Exit')
+                    var buff = dbmanager.fetchAllFiles()
+                    for(var i = 0; i < buff.length; i++) {
+                        console.log(buff[i] + "\n")
+                    }
                 }
             }
 
@@ -69,8 +75,24 @@ Page {
             }
 
         }
-        ListView {
+        SilicaGridView {
+            anchors.fill: parent
+            anchors.topMargin: 100
+            cellWidth: width / 2
+            cellHeight: cellWidth
+            delegate: Label {
+                width: GridView.view.cellWidth
+                height: GridView.view.cellHeight
+                text: (model.index + 1)
+                color: Theme.highlightColor
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+            model: 20
 
+            //flow: GridView.TopToBottom
+            VerticalScrollDecorator { }
+            //HorizontalScrollDecorator { }
         }
 
     }
