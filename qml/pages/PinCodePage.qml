@@ -31,6 +31,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import com.filemanager 1.0
+import org.nemomobile.notifications 1.0
 
 Dialog {
     id: dialog
@@ -48,8 +49,27 @@ Dialog {
         id: fileManager
         onResponseKey: {
             console.log(answer)
-            dialog.accept()
+            if (answer){
+                dialog.accept()
+            }
+            else {
+                notification.publish()
+            }
         }
+    }
+
+    Notification {
+        id: notification
+        category: "x-nemo.cryptofish"
+        summary: qsTr("Password incorrect")
+        body: qsTr("Password incorrect")
+        appName: qsTr("Cryptofish")
+        appIcon: "image://theme/icon-lock-information"
+        previewSummary: qsTr("Password incorrect")
+        previewBody: qsTr("Password incorrect")
+        itemCount: 5
+        onClicked: console.log("Clicked")
+        onClosed: console.log("Closed, reason: " + reason)
     }
 
     Column {
@@ -68,6 +88,7 @@ Dialog {
             EnterKey.onClicked: {
                 console.log('Enter pressed')
                 fileManager.verification(passwdField.text)
+                passwdField.text = ''
             }
         }
     }
