@@ -30,6 +30,8 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import com.filemanager 1.0
+import org.nemomobile.notifications 1.0
 
 Dialog {
     id: dialog
@@ -38,27 +40,66 @@ Dialog {
         //TODO: Validate(passwdField.text)
         //TODO: Decrypt()
         console.log('Validated/Decrypted')
-        passwdField.text = ''
-        pageStack.pushAttached(Qt.resolvedUrl("SecondPage.qml"))
+        pageStack.push(Qt.resolvedUrl("Menu.qml"))
+    }
+
+    FileManager {
+        id: fileManager
+        onResponseKey: {
+            console.log(answer)
+            if (answer){
+                dialog.accept()
+            }
+            else {
+                notification.publish()
+            }
+        }
+    }
+
+    Notification {
+        id: notification
+        category: "x-nemo.cryptofish"
+        summary: qsTr("Password incorrect")
+        body: qsTr("Password incorrect")
+        appName: qsTr("Cryptofish")
+        appIcon: "image://theme/icon-lock-information"
+        previewSummary: qsTr("Password incorrect")
+        previewBody: qsTr("Password incorrect")
+        itemCount: 5
+        onClicked: console.log("Clicked")
+        onClosed: console.log("Closed, reason: " + reason)
     }
 
     Column {
-
+        anchors.topMargin: 400
+        x: Theme.horizontalPageMargin
         anchors.fill: parent
-        DialogHeader { }
 
         PasswordField {
             id: passwdField
             placeholderText: 'Enter your PIN'
             text: ''
+            focus: true
             horizontalAlignment: TextInput.AlignHCenter
             inputMethodHints: Qt.ImhDigitsOnly
             EnterKey.enabled: text.length >= 6
             EnterKey.iconSource: "image://theme/icon-m-enter-accept"
             EnterKey.onClicked: {
                 console.log('Enter pressed')
-                dialog.accept()
+                fileManager.verification(passwdField.text)
+                passwdField.text = ''
             }
+
         }
+
+//        Button {
+//            text: ("Login")
+//            anchors.horizontalCenter: parent.horizontalCenter
+//            onClicked: {
+//                console.log('Login Buttton pressed')
+//                fileManager.verification(passwdField.text)
+//                passwdField.text = ''
+//            }
+//        }
     }
 }

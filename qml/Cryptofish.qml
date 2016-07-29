@@ -31,13 +31,33 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "pages"
+import com.filemanager 1.0
 
 ApplicationWindow
 {
-    initialPage: Component { PinCodePage { } }
+    Component.onDestruction: {
+            console.log("BYE")
+            fileManager.closing()
+        }
+
+    initialPage: PinCodePage { id: pinCodePage}
+
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: Orientation.Portrait
     _defaultPageOrientations: Orientation.Portrait
+
+
+    onApplicationActiveChanged: {
+        console.log(applicationActive);
+//        fileManager.closing()
+
+        if (applicationActive == false) {
+            pageStack.clear();
+        }
+        else if (pageStack.currentPage !== pinCodePage) {
+            pageStack.push(Qt.resolvedUrl("pages/PinCodePage.qml"));
+        }
+    }
 }
 
 
