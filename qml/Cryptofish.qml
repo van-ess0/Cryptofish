@@ -46,8 +46,10 @@ ApplicationWindow
     allowedOrientations: Orientation.Portrait
     _defaultPageOrientations: Orientation.Portrait
 
+
     onApplicationActiveChanged: {
         console.log(applicationActive);
+//        fileManager.closing()
 
         if (applicationActive == false) {
             pageStack.clear();

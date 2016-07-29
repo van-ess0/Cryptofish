@@ -1,10 +1,13 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-
-<<<<<<< HEAD
 Dialog {
+    DBManager {
+        id: dbmanager
+    }
+
     onAccepted: {
         console.log('Save text')
+        dbmanager.addFile(noteTextField.text)
         noteTextField.text = ""
     }
 
@@ -19,27 +22,19 @@ Dialog {
         Rectangle {
             anchors.fill: parent
             anchors.topMargin: 100
-            anchors.rightMargin: 20
-            anchors.leftMargin: 20
+            anchors.rightMargin: 40
+            anchors.leftMargin: 40
             color: "transparent"
 
             TextEdit {
                 id: noteTextField
                 anchors.fill: parent
-                anchors.topMargin: 40
+                anchors.topMargin: 80
                 color: Theme.highlightColor
-                font.pixelSize: 28
+                font.pixelSize: 36
                 wrapMode: TextEdit.WordWrap
             }
         }
-=======
-Page {
-    PageHeader {
-        title: "New Note"
-    }
-    Column {
-        anchors.fill: parent
-
->>>>>>> nikita
     }
 }
+

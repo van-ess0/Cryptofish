@@ -7,46 +7,83 @@ Page {
         title: "Settings"
     }
     Column {
+
+        id: column
+         anchors.topMargin: 200
+        x: Theme.horizontalPageMargin
+        width: parent.width
         anchors.fill: parent
 
-        TextField {
-            id: textField
+        Label {
+
             width: parent.width
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            horizontalAlignment: TextInput.AlignHCenter
+            x: Theme.horizontalPageMargin
+            text: ("Change password")
+    }
+        Label {
+
+            width: parent.width
+            x: Theme.horizontalPageMargin
+            text: ("")
+    }
+
+
+        TextField {
+            id: password
+            width: parent.width
+            anchors { left: parent.left; right: parent.right }
+            echoMode: TextInput.Password
+            label: "Password"; placeholderText: label
+            EnterKey.enabled: text || inputMethodComposing
             inputMethodHints: Qt.ImhDigitsOnly
-            height: parent / 5
-            text: ''
-            placeholderText: 'Set password'
+            EnterKey.iconSource: "image://theme/icon-m-enter-next"
+            EnterKey.onClicked: confirmPassword.focus = true
+        }
+
+        TextField {
+            width: parent.width
+            id: confirmPassword
+            anchors { left: parent.left; right: parent.right }
+            echoMode: TextInput.Password; enabled: password.text || text
+            errorHighlight: password.text != text
+            label: "Confirm Password"
+            placeholderText: label; opacity: enabled ? 1 : 0.5
+            Behavior on opacity { FadeAnimation { } }
+            EnterKey.enabled: text || inputMethodComposing
+            EnterKey.highlighted: !errorHighlight
+            inputMethodHints: Qt.ImhDigitsOnly
+            EnterKey.iconSource: "image://theme/icon-m-enter-next"
             EnterKey.onClicked: {
-                //TODO: SetPasswd()
-                console.log('Passwd set')
-                textField.text = ''
-                notification.publish()
-                pageStack.pop()
+            //TODO              SetPasswd(text);
+                                console.log('Passwd set')
+                                textField.text = ''
+                                notification.publish()
+                                pageStack.pop()
+
             }
-            EnterKey.enabled: text.length >= 6
+        }
+
 //            EnterKey.iconSource: TODO: Крутую иконку
 
         }
 
-        Notification {
-            id: notification
-            category: "x-nemo.cryptofish"
-            summary: qsTr("Password was changed")
-            body: qsTr("Password was changed")
-            appName: qsTr("Cryptofish")
-            appIcon: "image://theme/icon-lock-information"
-            previewSummary: qsTr("Password was changed")
-            previewBody: qsTr("Password was changed")
-            itemCount: 5
-            onClicked: console.log("Clicked")
-            onClosed: console.log("Closed, reason: " + reason)
-        }
+    Notification {
+        id: notification
+        category: "x-nemo.cryptofish"
+        summary: qsTr("Password was changed")
+        body: qsTr("Password was changed")
+        appName: qsTr("Cryptofish")
+        appIcon: "image://theme/icon-lock-information"
+        previewSummary: qsTr("Password was changed")
+        previewBody: qsTr("Password was changed")
+        itemCount: 5
+        onClicked: console.log("Clicked")
+        onClosed: console.log("Closed, reason: " + reason)
+    }
+
 
 
     }
 
-}
+
 
