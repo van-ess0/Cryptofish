@@ -40,15 +40,12 @@ ApplicationWindow
             fileManager.closing()
         }
 
-    FileManager {
-        id: fileManager
-    }
-
     initialPage: PinCodePage { id: pinCodePage}
 
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: Orientation.Portrait
     _defaultPageOrientations: Orientation.Portrait
+
 
     onApplicationActiveChanged: {
         console.log(applicationActive);
