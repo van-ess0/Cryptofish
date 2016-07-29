@@ -40,8 +40,8 @@ ApplicationWindow
             fileManager.closing()
         }
 
-
     initialPage: PinCodePage { id: pinCodePage}
+
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: Orientation.Portrait
     _defaultPageOrientations: Orientation.Portrait

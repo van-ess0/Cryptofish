@@ -49,3 +49,6 @@ DISTFILES += \
 HEADERS += \
     src/filemanager.h
 
+HEADERS += \
+    src/filemanager.h
+
