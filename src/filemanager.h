@@ -6,6 +6,7 @@
 #include <QFile>
 #include <QCryptographicHash>
 #include <sailfishapp.h>
+
 class FileManager : public QObject
 {
     Q_OBJECT
@@ -25,6 +26,7 @@ private:
     bool fileExists(QString path);
     void cryptFile(QString path);
     void decryptFile(QString path);
+
 };
 
 #endif // FILEMANAGER_H
