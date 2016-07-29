@@ -44,10 +44,10 @@ DISTFILES += \
     qml/pages/Notes.qml \
     qml/pages/Photo.qml \
     qml/pages/About.qml \
-    qml/pages/Others.qml
-
-HEADERS += \
-    src/filemanager.h
+    qml/pages/Others.qml \
+    qml/pages/NewNotePage.qml \
+    qml/pages/GridNotePage.qml \
+    qml/pages/DBManager.qml
 
 HEADERS += \
     src/filemanager.h

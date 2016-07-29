@@ -33,7 +33,6 @@ import Sailfish.Silica 1.0
 import com.filemanager 1.0
 import org.nemomobile.notifications 1.0
 
-
 Dialog {
     id: dialog
 
@@ -42,7 +41,6 @@ Dialog {
         //TODO: Decrypt()
         console.log('Validated/Decrypted')
         pageStack.push(Qt.resolvedUrl("Menu.qml"))
-
     }
 
     FileManager {

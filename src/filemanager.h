@@ -7,11 +7,13 @@
 #include <QCryptographicHash>
 #include <sailfishapp.h>
 
+
 class FileManager : public QObject
 {
     Q_OBJECT
 public:
     explicit FileManager(QObject *parent = 0);
+
 signals:
     void responseKey(bool answer);
     void fileDecrypted();
@@ -26,6 +28,7 @@ private:
     bool fileExists(QString path);
 /*    void cryptFile(QString path);
     void decryptFile(QString path)*/;
+
 
 };
 
