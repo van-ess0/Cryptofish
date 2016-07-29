@@ -40,6 +40,10 @@ ApplicationWindow
             fileManager.closing()
         }
 
+    FileManager {
+        id: fileManager
+    }
+
     initialPage: PinCodePage { id: pinCodePage}
 
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
@@ -48,6 +52,7 @@ ApplicationWindow
 
     onApplicationActiveChanged: {
         console.log(applicationActive);
+//        fileManager.closing()
 
         if (applicationActive == false) {
             pageStack.clear();

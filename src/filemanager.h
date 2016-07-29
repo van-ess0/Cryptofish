@@ -17,15 +17,15 @@ signals:
     void fileDecrypted();
 
 public slots:
-    void getDBLocation(QString path);
-    void fileRequest(QString name);
+//    void getDBLocation(QString path);
+//    void fileRequest(QString name);
     void verification(QString Key);
-    void closing();
+//    void closing();
 
 private:
     bool fileExists(QString path);
-    void cryptFile(QString path);
-    void decryptFile(QString path);
+/*    void cryptFile(QString path);
+    void decryptFile(QString path)*/;
 
 };
 

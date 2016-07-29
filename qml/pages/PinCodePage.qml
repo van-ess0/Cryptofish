@@ -41,7 +41,7 @@ Dialog {
         //TODO: Validate(passwdField.text)
         //TODO: Decrypt()
         console.log('Validated/Decrypted')
-        pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+        pageStack.push(Qt.resolvedUrl("Menu.qml"))
 
     }
 
@@ -81,6 +81,7 @@ Dialog {
             id: passwdField
             placeholderText: 'Enter your PIN'
             text: ''
+            focus: true
             horizontalAlignment: TextInput.AlignHCenter
             inputMethodHints: Qt.ImhDigitsOnly
             EnterKey.enabled: text.length >= 6
@@ -90,12 +91,17 @@ Dialog {
                 fileManager.verification(passwdField.text)
                 passwdField.text = ''
             }
+
         }
 
-        Button {
-            text: ("Login")
-            anchors.horizontalCenter: parent.horizontalCenter
-            onClicked: pageStack.replace(Qt.resolvedUrl("Menu.qml"))
-        }
+//        Button {
+//            text: ("Login")
+//            anchors.horizontalCenter: parent.horizontalCenter
+//            onClicked: {
+//                console.log('Login Buttton pressed')
+//                fileManager.verification(passwdField.text)
+//                passwdField.text = ''
+//            }
+//        }
     }
 }
