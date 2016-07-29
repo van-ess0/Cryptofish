@@ -13,7 +13,10 @@ Page {
 
             MenuItem {
                 text: "New note"
-                onClicked: console.log(qsTr("Option clicked"))
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("NewNotePage.qml"))
+                    console.log(qsTr("Option clicked"))
+                }
             }
 
 
