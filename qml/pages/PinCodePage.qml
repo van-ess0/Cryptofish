@@ -46,9 +46,10 @@ Dialog {
 
     FileManager {
         id: fileManager
-//        onResponseKey: {
-//            dialog.accept()
-//        }
+        onResponseKey: {
+            console.log(answer)
+            dialog.accept()
+        }
     }
 
     Column {
