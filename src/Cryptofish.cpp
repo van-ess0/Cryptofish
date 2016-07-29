@@ -41,7 +41,7 @@
 #include <QQmlComponent>
 #include <QQmlContext>
 #include <QQuickWindow>
-
+#include <crypt.h>
 #include <QStringList>
 
 int main(int argc, char *argv[])

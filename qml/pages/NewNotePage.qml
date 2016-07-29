@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+<<<<<<< HEAD
 Dialog {
     onAccepted: {
         console.log('Save text')
@@ -31,5 +32,14 @@ Dialog {
                 wrapMode: TextEdit.WordWrap
             }
         }
+=======
+Page {
+    PageHeader {
+        title: "New Note"
+    }
+    Column {
+        anchors.fill: parent
+
+>>>>>>> nikita
     }
 }

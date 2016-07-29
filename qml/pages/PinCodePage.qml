@@ -33,6 +33,7 @@ import Sailfish.Silica 1.0
 import com.filemanager 1.0
 import org.nemomobile.notifications 1.0
 
+
 Dialog {
     id: dialog
 
@@ -40,8 +41,7 @@ Dialog {
         //TODO: Validate(passwdField.text)
         //TODO: Decrypt()
         console.log('Validated/Decrypted')
-
-            pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+        pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
 
     }
 
@@ -73,9 +73,9 @@ Dialog {
     }
 
     Column {
-
+        anchors.topMargin: 400
+        x: Theme.horizontalPageMargin
         anchors.fill: parent
-        DialogHeader { }
 
         PasswordField {
             id: passwdField
@@ -90,6 +90,12 @@ Dialog {
                 fileManager.verification(passwdField.text)
                 passwdField.text = ''
             }
+        }
+
+        Button {
+            text: ("Login")
+            anchors.horizontalCenter: parent.horizontalCenter
+            onClicked: pageStack.replace(Qt.resolvedUrl("Menu.qml"))
         }
     }
 }
