@@ -14,11 +14,11 @@ TARGET = Cryptofish
 
 CONFIG += sailfishapp
 
-SOURCES += src/Cryptofish.cpp
+SOURCES += src/Cryptofish.cpp \
+    src/filemanager.cpp
 
 OTHER_FILES += qml/Cryptofish.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/Cryptofish.changes.in \
     rpm/Cryptofish.spec \
     rpm/Cryptofish.yaml \
@@ -40,5 +40,12 @@ TRANSLATIONS +=
 DISTFILES += \
     qml/pages/PinCodePage.qml \
     qml/pages/SettingsPage.qml \
-    qml/pages/NewNotePage.qml
+    qml/pages/Menu.qml \
+    qml/pages/Notes.qml \
+    qml/pages/Photo.qml \
+    qml/pages/About.qml \
+    qml/pages/Others.qml
+
+HEADERS += \
+    src/filemanager.h
 

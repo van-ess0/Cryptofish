@@ -44,6 +44,9 @@ Page {
             onClicked: console.log("Clicked")
             onClosed: console.log("Closed, reason: " + reason)
         }
+
+
     }
+
 }
 
