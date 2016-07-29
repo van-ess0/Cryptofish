@@ -54,6 +54,9 @@ Dialog {
                 notification.publish()
             }
         }
+//        onPasswordChanged: {
+//            console.log("Password change result: " + answer)
+//        }
     }
 
     Notification {
