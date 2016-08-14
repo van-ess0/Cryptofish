@@ -4,6 +4,7 @@
 
 FileManager::FileManager(QObject *parent) : QObject(parent)
 {
+    qDebug() << tr("Translated string");
     bool identification(QString Key);
     bool fileExists(QString path);
 }

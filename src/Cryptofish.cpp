@@ -43,6 +43,7 @@
 #include <QQuickWindow>
 #include <crypt.h>
 #include <QStringList>
+#include <QGuiApplication>
 
 int main(int argc, char *argv[])
 {
@@ -55,13 +56,20 @@ int main(int argc, char *argv[])
     //
     // To display the view, call "show()" (will show fullscreen on device).
 
-    //FileManager* filemanager = new FileManager();
-
     qmlRegisterType<FileManager>("com.filemanager", 1, 0, "FileManager");
 
     qSetMessagePattern("[%{time yyyyMMdd h:mm:ss.zzz}]\
         [%{if-debug}DEBUG%{endif}\%{if-info}INFO%{endif}%{if-warning}WARNING%{endif}\%{if-critical}CRITICAL%{endif}%{if-fatal}FATAL%{endif}]\
         [%{file}:%{line} %{function}] - %{message}");
+
+// TODO: MAKE TRANSLATIONS
+//    QGuiApplication* app = SailfishApp::application(argc, argv);
+//    QTranslator translator;
+//    translator.load(":/res/Cryptofish_ru.qm");
+//    app->installTranslator(&translator);
+//    QQuickView* view = SailfishApp::createView();
+//    view->show();
+//    return app->exec();
 
     return SailfishApp::main(argc, argv);
 }

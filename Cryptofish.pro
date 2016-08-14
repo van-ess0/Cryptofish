@@ -14,15 +14,35 @@ TARGET = Cryptofish
 
 CONFIG += sailfishapp
 
-SOURCES += src/Cryptofish.cpp \
+HEADERS += \
+    src/filemanager.h
+
+SOURCES += \
+    src/Cryptofish.cpp \
     src/filemanager.cpp
 
-OTHER_FILES += qml/Cryptofish.qml \
+lupdate_only {
+SOURCES += \
+    qml/Cryptofish.qml \
     qml/cover/CoverPage.qml \
+    qml/pages/PinCodePage.qml \
+    qml/pages/SettingsPage.qml \
+    qml/pages/Menu.qml \
+    qml/pages/Photo.qml \
+    qml/pages/About.qml \
+    qml/pages/Others.qml \
+    qml/pages/NewNotePage.qml \
+    qml/pages/GridNotePage.qml \
+    qml/pages/DBManager.qml
+
+}
+
+OTHER_FILES += \
     rpm/Cryptofish.changes.in \
     rpm/Cryptofish.spec \
     rpm/Cryptofish.yaml \
-    translations/*.ts \
+    translations/Cryptofish_en.ts \
+    translations/Cryptofish_ru.ts \
     Cryptofish.desktop
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
@@ -35,20 +55,9 @@ CONFIG += sailfishapp_i18n
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS +=
+TRANSLATIONS += \
+    translations/Cryptofish_en.ts \
+    translations/Cryptofish_ru.ts
 
-DISTFILES += \
-    qml/pages/PinCodePage.qml \
-    qml/pages/SettingsPage.qml \
-    qml/pages/Menu.qml \
-    qml/pages/Notes.qml \
-    qml/pages/Photo.qml \
-    qml/pages/About.qml \
-    qml/pages/Others.qml \
-    qml/pages/NewNotePage.qml \
-    qml/pages/GridNotePage.qml \
-    qml/pages/DBManager.qml
-
-HEADERS += \
-    src/filemanager.h
-
+RESOURCES += \
+    resources.qrc

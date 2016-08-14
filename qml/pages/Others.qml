@@ -7,11 +7,5 @@ Page {
         PageHeader {
             title: "Other"
         }
-
-
-
-
-
-
     }
 }

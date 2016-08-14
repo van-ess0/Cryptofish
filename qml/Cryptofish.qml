@@ -64,6 +64,19 @@ ApplicationWindow
         }
     }
 
+    onApplicationActiveChanged: {
+        console.log(applicationActive);
+//        fileManager.closing()
+
+        fileManager.closing()
+        if (applicationActive == false) {
+            pageStack.clear();
+        }
+        else if (pageStack.currentPage !== pinCodePage) {
+            pageStack.push(Qt.resolvedUrl("pages/PinCodePage.qml"));
+        }
+    }
+
     Notification {
         id: notification
         category: "x-nemo.cryptofish"
@@ -76,19 +89,6 @@ ApplicationWindow
         itemCount: 5
         onClicked: console.log("Clicked")
         onClosed: console.log("Closed, reason: " + reason)
-    }
-
-
-    onApplicationActiveChanged: {
-        console.log(applicationActive);
-
-        fileManager.closing()
-        if (applicationActive == false) {
-            pageStack.clear();
-        }
-        else if (pageStack.currentPage !== pinCodePage) {
-            pageStack.push(Qt.resolvedUrl("pages/PinCodePage.qml"));
-        }
     }
 }
 

@@ -17,6 +17,22 @@ Page {
                 applicationWindow.currentPageName = model.name
             }
         }
+
+
+        PullDownMenu {
+
+
+            MenuItem {
+                text: "Settings"
+                onClicked: pageStack.replace(Qt.resolvedUrl("SettingsPage.qml"))
+            }
+
+            MenuItem {
+                text: "About"
+                onClicked: pageStack.replace(Qt.resolvedUrl("About.qml"))
+            }
+        }
+
         section {
             property: "category"
             criteria: ViewSection.FullString
@@ -25,7 +41,7 @@ Page {
         model: ListModel {
             ListElement {
                 name: "Notes"
-                page: "Notes"
+                page: "GridNotePage"
 
             }
             ListElement {
@@ -34,18 +50,12 @@ Page {
 
             }
             ListElement {
-                name: "Other"
+                name: "Other files"
                 page: "Others"
 
             }
-            ListElement {
-                name: "Settings"
-                page: "SettingsPage"
-            }
-            ListElement {
-                name: "About"
-                page: "About"
-            }
+
+
         }
 
         PushUpMenu {

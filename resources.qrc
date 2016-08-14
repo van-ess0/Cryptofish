@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>translations/Cryptofish_en.qm</file>
+        <file>translations/Cryptofish_ru.qm</file>
+    </qresource>
+</RCC>
