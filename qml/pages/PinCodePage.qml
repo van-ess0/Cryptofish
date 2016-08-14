@@ -54,6 +54,9 @@ Dialog {
                 notification.publish()
             }
         }
+//        onPasswordChanged: {
+//            console.log("Password change result: " + answer)
+//        }
     }
 
     Notification {
@@ -82,7 +85,7 @@ Dialog {
             focus: true
             horizontalAlignment: TextInput.AlignHCenter
             inputMethodHints: Qt.ImhDigitsOnly
-            EnterKey.enabled: text.length >= 6
+            EnterKey.enabled: text.length
             EnterKey.iconSource: "image://theme/icon-m-enter-accept"
             EnterKey.onClicked: {
                 console.log('Enter pressed')

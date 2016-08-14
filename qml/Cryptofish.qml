@@ -32,6 +32,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "pages"
 import com.filemanager 1.0
+import org.nemomobile.notifications 1.0
 
 ApplicationWindow
 {
@@ -46,17 +47,48 @@ ApplicationWindow
     allowedOrientations: Orientation.Portrait
     _defaultPageOrientations: Orientation.Portrait
 
+    FileManager {
+        id: fileManager
+//        onResponseKey: {
+//            console.log(answer)
+//            if (answer){
+//                dialog.accept()
+//            }
+//            else {
+//                notification.publish()
+//            }
+//        }
+        onPasswordChanged: {
+            console.log("Password change result: " + answer)
+            notification.publish()
+        }
+    }
 
     onApplicationActiveChanged: {
         console.log(applicationActive);
 //        fileManager.closing()
 
+        fileManager.closing()
         if (applicationActive == false) {
             pageStack.clear();
         }
         else if (pageStack.currentPage !== pinCodePage) {
             pageStack.push(Qt.resolvedUrl("pages/PinCodePage.qml"));
         }
+    }
+
+    Notification {
+        id: notification
+        category: "x-nemo.cryptofish"
+        summary: qsTr("Password was changed")
+        body: qsTr("Password was changed")
+        appName: qsTr("Cryptofish")
+        appIcon: "image://theme/icon-lock-information"
+        previewSummary: qsTr("Password was changed")
+        previewBody: qsTr("Password was changed")
+        itemCount: 5
+        onClicked: console.log("Clicked")
+        onClosed: console.log("Closed, reason: " + reason)
     }
 }
 

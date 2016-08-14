@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import org.nemomobile.notifications 1.0
 
 Page {
     PageHeader {
@@ -9,7 +8,7 @@ Page {
     Column {
 
         id: column
-         anchors.topMargin: 200
+        anchors.topMargin: 200
         x: Theme.horizontalPageMargin
         width: parent.width
         anchors.fill: parent
@@ -19,13 +18,13 @@ Page {
             width: parent.width
             x: Theme.horizontalPageMargin
             text: ("Change password")
-    }
+        }
         Label {
 
             width: parent.width
             x: Theme.horizontalPageMargin
             text: ("")
-    }
+        }
 
 
         TextField {
@@ -54,36 +53,22 @@ Page {
             inputMethodHints: Qt.ImhDigitsOnly
             EnterKey.iconSource: "image://theme/icon-m-enter-next"
             EnterKey.onClicked: {
-            //TODO              SetPasswd(text);
-                                console.log('Passwd set')
-                                textField.text = ''
-                                notification.publish()
-                                pageStack.pop()
+                //TODO SetPasswd(text);
+                if (password.text != confirmPassword.text)
+                    return;
 
+                console.log('Passwd set')
+                fileManager.changeKey(password.text)
+                password.text = confirmPassword.text = ''
+                notification.publish()
+                pageStack.pop()
             }
         }
 
-//            EnterKey.iconSource: TODO: Крутую иконку
-
-        }
-
-    Notification {
-        id: notification
-        category: "x-nemo.cryptofish"
-        summary: qsTr("Password was changed")
-        body: qsTr("Password was changed")
-        appName: qsTr("Cryptofish")
-        appIcon: "image://theme/icon-lock-information"
-        previewSummary: qsTr("Password was changed")
-        previewBody: qsTr("Password was changed")
-        itemCount: 5
-        onClicked: console.log("Clicked")
-        onClosed: console.log("Closed, reason: " + reason)
-    }
-
-
+        // EnterKey.iconSource: TODO: Крутую иконку
 
     }
+}
 
 
 

@@ -16,19 +16,21 @@ public:
 
 signals:
     void responseKey(bool answer);
+    void passwordChanged(bool answer);
     void fileDecrypted();
 
 public slots:
 //    void getDBLocation(QString path);
 //    void fileRequest(QString name);
     void verification(QString Key);
-//    void closing();
+    void changeKey(QString Key);
+    void closing();
 
 private:
+    QString* passwd;
     bool fileExists(QString path);
 /*    void cryptFile(QString path);
     void decryptFile(QString path)*/;
-
 
 };
 
